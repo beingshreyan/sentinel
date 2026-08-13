@@ -1,10 +1,6 @@
 const API_BASE_URL = "https://sentinel-gdnk.onrender.com";
 
 
-/* =========================================================
-   ELEMENTS
-   ========================================================= */
-
 const accessGate =
     document.getElementById("access-gate");
 
@@ -27,9 +23,6 @@ const submitButton =
     document.getElementById("submit-button");
 
 
-/* =========================================================
-   LOCATION DATA
-   ========================================================= */
 
 let locationData = {
     latitude: null,
@@ -37,10 +30,6 @@ let locationData = {
     accuracy: null
 };
 
-
-/* =========================================================
-   LOCATION
-   ========================================================= */
 
 function requestLocation() {
 
@@ -187,20 +176,12 @@ locationButton.addEventListener(
 );
 
 
-/* =========================================================
-   FORM SUBMISSION
-   ========================================================= */
-
 customerForm.addEventListener(
     "submit",
     async (event) => {
 
         event.preventDefault();
 
-
-        /* ---------------------------------------------
-           Read form values
-           --------------------------------------------- */
 
         const name =
             document
@@ -223,10 +204,6 @@ customerForm.addEventListener(
                 .trim();
 
 
-        /* ---------------------------------------------
-           Basic validation
-           --------------------------------------------- */
-
         if (!name || !email || !phone) {
 
             setMessage(
@@ -237,10 +214,6 @@ customerForm.addEventListener(
             return;
         }
 
-
-        /* ---------------------------------------------
-           Require location
-           --------------------------------------------- */
 
         if (
             locationData.latitude === null ||
@@ -256,10 +229,6 @@ customerForm.addEventListener(
         }
 
 
-        /* ---------------------------------------------
-           Disable form while submitting
-           --------------------------------------------- */
-
         submitButton.disabled = true;
 
         submitButton.textContent =
@@ -271,10 +240,6 @@ customerForm.addEventListener(
             false
         );
 
-
-        /* ---------------------------------------------
-           Browser information
-           --------------------------------------------- */
 
         const browser =
             navigator.userAgent || "";
@@ -289,10 +254,6 @@ customerForm.addEventListener(
                 ? "Mobile"
                 : "Desktop";
 
-
-        /* ---------------------------------------------
-           Request body
-           --------------------------------------------- */
 
         const payload = {
 
@@ -319,10 +280,6 @@ customerForm.addEventListener(
 
         };
 
-
-        /* ---------------------------------------------
-           Send to FastAPI
-           --------------------------------------------- */
 
         try {
 
@@ -366,19 +323,11 @@ customerForm.addEventListener(
             }
 
 
-            /* -----------------------------------------
-               Submission successful
-               ----------------------------------------- */
-
             setMessage(
                 "Information submitted successfully.",
                 false
             );
 
-
-            /*
-             * Hide the access gate and reveal the store.
-             */
 
             accessGate.classList.add(
                 "hidden"
@@ -389,18 +338,9 @@ customerForm.addEventListener(
             );
 
 
-            /*
-             * Prevent the browser from returning to the
-             * form state through normal page flow.
-             */
-
             document.body.style.overflow =
                 "auto";
 
-
-            /*
-             * Start the store from the top.
-             */
 
             window.scrollTo(
                 {
@@ -435,10 +375,6 @@ customerForm.addEventListener(
 );
 
 
-/* =========================================================
-   MESSAGE HELPER
-   ========================================================= */
-
 function setMessage(
     message,
     isError = false
@@ -461,10 +397,6 @@ function setMessage(
     );
 }
 
-
-/* =========================================================
-   INITIAL STATE
-   ========================================================= */
 
 document.body.style.overflow =
     "hidden";

@@ -19,17 +19,8 @@ from .auth import (
 )
 from .sheets import append_record, get_records
 
-
-# =========================================================
-# ENVIRONMENT
-# =========================================================
-
 load_dotenv()
 
-
-# =========================================================
-# APP
-# =========================================================
 
 app = FastAPI(
     title="Sentinel API",
@@ -37,10 +28,6 @@ app = FastAPI(
     version="0.1.0",
 )
 
-
-# =========================================================
-# CORS
-# =========================================================
 
 cors_origins = [
     origin.strip()
@@ -59,10 +46,6 @@ app.add_middleware(
     allow_headers=["Content-Type"],
 )
 
-
-# =========================================================
-# MODELS
-# =========================================================
 
 class LoginRequest(BaseModel):
     username: str = Field(
@@ -115,10 +98,6 @@ class CollectionRequest(BaseModel):
     device: Optional[str] = None
 
 
-# =========================================================
-# HELPERS
-# =========================================================
-
 def get_client_ip(request: Request) -> str:
     """
     Get the directly connected client IP.
@@ -149,9 +128,6 @@ def validate_ip(value: Optional[str]) -> Optional[str]:
         return None
 
 
-# =========================================================
-# ROOT
-# =========================================================
 
 @app.get("/")
 async def root():
@@ -162,9 +138,6 @@ async def root():
     }
 
 
-# =========================================================
-# HEALTH CHECK
-# =========================================================
 
 @app.get("/api/health")
 async def health():
@@ -172,10 +145,6 @@ async def health():
         "status": "healthy",
     }
 
-
-# =========================================================
-# DATA COLLECTION
-# =========================================================
 
 @app.post("/api/collect")
 async def collect_data(
@@ -190,10 +159,7 @@ async def collect_data(
     is added here.
     """
 
-    # -----------------------------------------------------
-    # Get client IP
-    # -----------------------------------------------------
-
+  
     client_ip = get_client_ip(request)
 
     validated_ip = validate_ip(client_ip)
@@ -216,10 +182,7 @@ async def collect_data(
             pass
 
 
-    # -----------------------------------------------------
-    # Browser / User Agent
-    # -----------------------------------------------------
-
+   
     browser = (
         data.browser
         or request.headers.get(
@@ -229,17 +192,10 @@ async def collect_data(
     )
 
 
-    # -----------------------------------------------------
-    # Determine IPv6 value
-    # -----------------------------------------------------
-
     ipv6 = data.ipv6 or detected_ipv6
 
 
-    # -----------------------------------------------------
-    # Build record
-    # -----------------------------------------------------
-
+    
     record = {
         "ID": str(uuid.uuid4()),
 
@@ -285,10 +241,7 @@ async def collect_data(
     }
 
 
-    # -----------------------------------------------------
-    # Store record in Google Sheets
-    # -----------------------------------------------------
-
+    
     try:
 
         append_record(record)
@@ -319,19 +272,13 @@ async def collect_data(
         )
 
 
-    # -----------------------------------------------------
-    # Response
-    # -----------------------------------------------------
-
+    
     return {
         "success": True,
         "id": record["ID"],
     }
 
 
-# =========================================================
-# ADMIN LOGIN
-# =========================================================
 
 @app.post("/api/admin/login")
 async def admin_login(
@@ -384,10 +331,6 @@ async def admin_login(
     return response
 
 
-# =========================================================
-# ADMIN LOGOUT
-# =========================================================
-
 @app.post("/api/admin/logout")
 async def admin_logout(
     response: Response,
@@ -405,9 +348,6 @@ async def admin_logout(
     }
 
 
-# =========================================================
-# ADMIN AUTH CHECK
-# =========================================================
 
 @app.get("/api/admin/check")
 async def admin_check(
@@ -423,9 +363,6 @@ async def admin_check(
     }
 
 
-# =========================================================
-# ADMIN DATA
-# =========================================================
 
 @app.get("/api/admin/data")
 async def admin_data(
