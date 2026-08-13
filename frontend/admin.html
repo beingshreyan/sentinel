@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sentinel Admin</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body class="admin-body">
+
+    <main class="admin-login-page">
+
+        <section class="login-card">
+
+            <p class="eyebrow">
+                SENTINEL
+            </p>
+
+            <h1>
+                Admin Access
+            </h1>
+
+            <p>
+                Authenticate to access the Sentinel dashboard.
+            </p>
+
+
+            <form
+                id="login-form"
+                class="login-form"
+            >
+
+                <div>
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        autocomplete="username"
+                        placeholder="Enter username"
+                        required
+                    >
+                </div>
+
+
+                <div>
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        autocomplete="current-password"
+                        placeholder="Enter password"
+                        required
+                    >
+                </div>
+
+
+                <div
+                    id="login-message"
+                    class="login-message"
+                    aria-live="polite"
+                ></div>
+
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+                    Authenticate
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/admin.js"></script>
+
+</body>
+</html>

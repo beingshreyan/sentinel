@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Sentinel Computer Hardware Store"
+    >
+
+    <title>Sentinel Store</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         REQUIRED INFORMATION OVERLAY
+         ===================================================== -->
+
+    <section
+        id="access-gate"
+        class="access-gate"
+    >
+
+        <div class="access-card">
+
+            <div class="access-header">
+
+                <p class="eyebrow">
+                    SENTINEL STORE
+                </p>
+
+                <h1>
+                    Welcome.
+                </h1>
+
+                <p>
+                    Please provide the required information below
+                    before accessing the store.
+                </p>
+
+            </div>
+
+
+            <form
+                id="customer-form"
+                class="customer-form"
+            >
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        autocomplete="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        autocomplete="tel"
+                        placeholder="Enter your phone number"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="location-box">
+
+                    <div class="location-information">
+
+                        <h3>
+                            Location
+                        </h3>
+
+                        <p id="location-status">
+                            Location permission is required
+                            to continue.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="location-button"
+                        class="secondary-button"
+                    >
+                        Allow Location
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="form-message"
+                    class="form-message"
+                    aria-live="polite"
+                ></div>
+
+
+                <button
+                    type="submit"
+                    id="submit-button"
+                    class="submit-button"
+                >
+                    Continue to Store
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         STORE
+         ===================================================== -->
+
+    <div
+        id="store-content"
+        class="store-content hidden"
+    >
+
+        <header class="navbar">
+
+            <div class="logo">
+                SENTINEL
+            </div>
+
+
+            <nav>
+
+                <a href="#products">
+                    Products
+                </a>
+
+                <a href="#categories">
+                    Categories
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </nav>
+
+        </header>
+
+
+        <main>
+
+            <!-- HERO -->
+
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <p class="eyebrow">
+                        NEXT-GEN COMPUTER HARDWARE
+                    </p>
+
+                    <h1>
+                        Build Your
+                        <span>Perfect Machine.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Explore high-performance components for
+                        gaming, development, workstation builds
+                        and more.
+                    </p>
+
+                    <a
+                        href="#products"
+                        class="hero-button"
+                    >
+                        Explore Products
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- PRODUCTS -->
+
+            <section
+                id="products"
+                class="products-section"
+            >
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        OUR CATALOG
+                    </p>
+
+                    <h2>
+                        Computer Components
+                    </h2>
+
+                    <p>
+                        Browse our selection of high-performance
+                        computer hardware.
+                    </p>
+
+                </div>
+
+
+                <div class="product-grid">
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            CPU
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                Performance CPU
+                            </h3>
+
+                            <p>
+                                High-performance processor for
+                                demanding workloads.
+                            </p>
+
+                            <span class="price">
+                                ₹24,999
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            GPU
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                Graphics Card
+                            </h3>
+
+                            <p>
+                                Powerful graphics hardware for
+                                gaming and creative applications.
+                            </p>
+
+                            <span class="price">
+                                ₹49,999
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            RAM
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                DDR5 Memory
+                            </h3>
+
+                            <p>
+                                Fast and reliable memory for
+                                modern systems.
+                            </p>
+
+                            <span class="price">
+                                ₹8,499
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            SSD
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                NVMe SSD
+                            </h3>
+
+                            <p>
+                                High-speed storage for your
+                                operating system and applications.
+                            </p>
+
+                            <span class="price">
+                                ₹6,999
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            PSU
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                850W Power Supply
+                            </h3>
+
+                            <p>
+                                Reliable power delivery for
+                                high-performance builds.
+                            </p>
+
+                            <span class="price">
+                                ₹11,499
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            CASE
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                Gaming Case
+                            </h3>
+
+                            <p>
+                                Spacious airflow-focused case
+                                for modern builds.
+                            </p>
+
+                            <span class="price">
+                                ₹7,499
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- CATEGORIES -->
+
+            <section
+                id="categories"
+                class="products-section"
+            >
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        CATEGORIES
+                    </p>
+
+                    <h2>
+                        Find Your Components
+                    </h2>
+
+                    <p>
+                        Explore hardware categories for your next build.
+                    </p>
+
+                </div>
+
+
+                <div class="product-grid">
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            CPU
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                Processors
+                            </h3>
+
+                            <p>
+                                CPUs for gaming, development and
+                                professional workloads.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            GPU
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                Graphics
+                            </h3>
+
+                            <p>
+                                Graphics cards for gaming,
+                                rendering and creative work.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+                            STORAGE
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                Storage
+                            </h3>
+
+                            <p>
+                                SSDs and storage solutions for
+                                fast and reliable systems.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <footer
+            id="contact"
+            class="footer"
+        >
+
+            <p>
+                © 2026 Sentinel Store
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <script src="js/user.js"></script>
+
+</body>
+</html>

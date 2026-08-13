@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sentinel Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body class="admin-body">
+
+    <div class="admin-layout">
+
+        <!-- Sidebar -->
+
+        <aside class="admin-sidebar">
+
+            <div class="admin-brand">
+
+                <h1>
+                    SENTINEL
+                </h1>
+
+                <p>
+                    ADMIN CONSOLE
+                </p>
+
+            </div>
+
+
+            <nav class="admin-nav">
+
+                <a
+                    href="#"
+                    class="active"
+                >
+                    Dashboard
+                </a>
+
+                <a href="#records">
+                    Records
+                </a>
+
+                <button
+                    type="button"
+                    id="logout-button"
+                >
+                    Logout
+                </button>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- Main -->
+
+        <main class="admin-main">
+
+            <header class="admin-topbar">
+
+                <div class="admin-title">
+
+                    <h2>
+                        Dashboard
+                    </h2>
+
+                    <p>
+                        Sentinel telemetry records
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="refresh-button"
+                    class="secondary-button"
+                >
+                    Refresh
+                </button>
+
+            </header>
+
+
+            <!-- Statistics -->
+
+            <section class="stats-grid">
+
+                <article class="stat-card">
+
+                    <span>
+                        Total Records
+                    </span>
+
+                    <strong id="record-count">
+                        0
+                    </strong>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span>
+                        Service
+                    </span>
+
+                    <strong>
+                        Online
+                    </strong>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span>
+                        Database
+                    </span>
+
+                    <strong>
+                        Sheets
+                    </strong>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong>
+                        Active
+                    </strong>
+
+                </article>
+
+            </section>
+
+
+            <!-- Data -->
+
+            <section
+                id="records"
+                class="admin-card"
+            >
+
+                <div class="admin-card-header">
+
+                    <div>
+
+                        <h3>
+                            Collected Records
+                        </h3>
+
+                        <p>
+                            Data received by Sentinel
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="dashboard-message"
+                    style="
+                        min-height: 22px;
+                        margin-bottom: 12px;
+                        font-size: 0.82rem;
+                    "
+                    aria-live="polite"
+                ></div>
+
+
+                <div class="table-wrapper">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+                                <th>Timestamp</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>IPv4</th>
+                                <th>IPv6</th>
+                                <th>Network</th>
+                                <th>Browser</th>
+                                <th>OS</th>
+                                <th>Device</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>Maps</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="records-body">
+
+                            <tr>
+
+                                <td
+                                    colspan="14"
+                                    class="empty-state"
+                                >
+                                    Loading records...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <footer
+                style="
+                    margin-top: 25px;
+                    color: var(--text-muted);
+                    font-size: 0.75rem;
+                "
+            >
+
+                Sentinel Admin Console
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>
